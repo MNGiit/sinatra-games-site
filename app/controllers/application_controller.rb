@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do 
     # erb :index
-    "Hello world!" 
+    "Hello world! This part at least works." 
   end
 
 end
