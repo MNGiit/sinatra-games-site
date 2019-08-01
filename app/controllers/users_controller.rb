@@ -10,12 +10,12 @@ class UsersController < ApplicationController
   
   post '/signup' do
     # info for name, email, or password is missing? redirect to /signup
-    if params[:name].nil? || params[:email].nil? || params[:password].nil?
+    if params[:name].empty? || params[:email].empty? || params[:password].empty?
+      # check if email is unique
       redirect to '/signup'
     else
-      "Looks like params is legit."
+      redirect to '/login'
     end
-    
   end
   
   get '/login' do
