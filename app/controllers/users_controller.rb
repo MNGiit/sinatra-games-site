@@ -16,15 +16,25 @@ class UsersController < ApplicationController
       @user = User.new(:name => params[:name], :password => params[:password], :email => params[:email])
       @user.save
       session[:user_id] = @user.id
-      binding.pry
+      # binding.pry
       redirect to '/login'
     end
   end
   
   get '/login' do
-    "Place holder for login. Don't forget to do a Post"
+    erb :'users/login'
   end
   
+  post '/login' do
+    # binding.pry
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      "Congrats it works"
+    else
+      redirect to '/signup'
+    end
+  end
   get '/logout' do
     "Placeholder for logout."
   end
