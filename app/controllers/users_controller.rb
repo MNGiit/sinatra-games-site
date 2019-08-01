@@ -46,7 +46,8 @@ class UsersController < ApplicationController
   end
   
   get '/logout' do
-    "Placeholder for logout."
+    session.clear
+    redirect to '/login'
   end
   
 end
