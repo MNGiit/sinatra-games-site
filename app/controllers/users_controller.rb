@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     else
       @user = User.new(:name => params[:name], :password => params[:password], :email => params[:email])
       @user.save
+      session[:user_id] = @user.id
       binding.pry
       redirect to '/login'
     end
