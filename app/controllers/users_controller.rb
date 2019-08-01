@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
   
   get '/signup' do
-    "Place holder for signup. Don't forget to do a Post."
+    erb :'users/signup'
   end
   
   get '/login' do
