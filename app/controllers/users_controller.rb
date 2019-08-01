@@ -22,7 +22,11 @@ class UsersController < ApplicationController
   end
   
   get '/login' do
-    erb :'users/login'
+    if session[:user_id]
+      redirect to "/users/#{session[:user_id]}"
+    else
+      erb :'users/login'
+    end
   end
   
   post '/login' do
