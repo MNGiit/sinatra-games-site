@@ -1,0 +1,8 @@
+<h1><%= @game.title %></h1>
+<h2><%= @game.publisher %></h2>
+<h3><%= @game.description %></h3>
+
+<% @game.reviews.each do |review| %>
+  <p>Score: <%= review.score %></p>
+  <p>Review: <%= review.content %> by <a href="/users/<%=review.user.id%>"><%= review.user.name %></a></p><br>
+<% end %>
