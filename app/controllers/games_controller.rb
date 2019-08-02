@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
   
   get '/games' do
-    erb :'/games/index'
+    @games = Game.all
+    erb :'games/index'
   end
   
   
