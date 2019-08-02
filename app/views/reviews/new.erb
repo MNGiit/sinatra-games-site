@@ -1,6 +1,14 @@
 <h1>New Review</h1>
 <form method="POST" action="/reviews/new">
   
+  <select id="game" name="game" required>
+    <!-- <option disabled selected value> -- select an option -- </option> --> <!-- this works but makes the box too big -->
+    <option></option>
+    <% @games.each do |game| %>
+      <option value=<%=game.id%>><%= game.title %></option>
+    <% end %>
+  </select> <br>
+  
   <!-- Score:<input type="number" name="score" min="1" max="5" required> -->
   <!-- 
   <label for="1">1</label>
