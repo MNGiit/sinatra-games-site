@@ -24,4 +24,4 @@ Review.create(user: videoplayer, game: supermarioodyssey, score: 5, content: "Ga
 Review.create(user: billybob, game: supermarioodyssey, score: 5, content: "not bad")
 Review.create(user: proplayer, game: supermarioodyssey, score: 5, content: "Such a great game, would buy 100 copies if i could afford it.")
 Review.create(user: darkblade, game: supermarioodyssey, score: 1, content: "were th zombies?")
-Review.create(user: reviewking, game: supermarioodyssey, score: 1, content: "Mario is teaching kids to jump on people heads and become plumbers instead of doctors")
+Review.create(user: concernedparent, game: supermarioodyssey, score: 1, content: "Mario is teaching kids to jump on people heads and become plumbers instead of doctors")
