@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   
   get '/reviews/new' do
-    "Hello world!"
+    erb :'reviews/new'
   end
   
 end
