@@ -1,7 +1,7 @@
 <h1>New Review</h1>
 <form method="POST" action="/reviews/new">
   
-  <select id="game" name="game" required>
+  <select id="game" name="game_id" required>
     <!-- <option disabled selected value> -- select an option -- </option> --> <!-- this works but makes the box too big -->
     <option></option>
     <% @games.each do |game| %>
