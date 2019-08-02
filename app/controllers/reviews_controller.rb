@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   get '/reviews/new' do
     if session[:user_id]
       @games = Game.all
-      binding.pry
       erb :'reviews/new'
     else
       redirect to '/login'
@@ -11,8 +10,9 @@ class ReviewsController < ApplicationController
   end
   
   post '/reviews/new' do
-    binding.pry
     "It did a post review new"
+    @review = Review.new(:score => params[:score], :content => params[:content], :user => User.find_by_id(session[:user_id]), :game => Game.find(params[:game_id]))
+    "#{@review.score} - #{@review.content} - #{@review.user.name} - #{@review.game.title}"
   end
   
 end
