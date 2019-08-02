@@ -8,4 +8,8 @@ class ReviewsController < ApplicationController
     end
   end
   
+  post '/reviews/new' do
+    "It did a post review new"
+  end
+  
 end
