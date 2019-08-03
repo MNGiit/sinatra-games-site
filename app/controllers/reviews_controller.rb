@@ -60,11 +60,12 @@ class ReviewsController < ApplicationController
   end
   
   delete '/reviews/:id/delete' do
-    #
+    @review = Review.find_by_id(params[:id])
     if session[:user_id]
+      binding.pry
       if @review && @review.user_id == session[:user_id]
         @review.delete
-        user = session[:user_id]
+        user = User.find_by_id(session[:user_id])
         redirect to "/users/#{user.id}"
       else
         redirect to '/games'
