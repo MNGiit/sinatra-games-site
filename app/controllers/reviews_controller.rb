@@ -17,8 +17,6 @@ class ReviewsController < ApplicationController
       redirect to "/reviews/#{review.id}"
     else
       @review = Review.create(:score => params[:score], :content => params[:content], :user => User.find_by_id(session[:user_id]), :game => Game.find(params[:game_id]))
-      # "#{@review.score} - #{@review.content} - #{@review.user.name} - #{@review.game.title}"
-      
       redirect to "/reviews/#{@review.id}"
     end
   end
@@ -62,7 +60,6 @@ class ReviewsController < ApplicationController
   delete '/reviews/:id/delete' do
     @review = Review.find_by_id(params[:id])
     if session[:user_id]
-      binding.pry
       if @review && @review.user_id == session[:user_id]
         @review.delete
         user = User.find_by_id(session[:user_id])
@@ -73,7 +70,6 @@ class ReviewsController < ApplicationController
     else
       redirect to '/login'
     end
-    #
   end
   
 end
