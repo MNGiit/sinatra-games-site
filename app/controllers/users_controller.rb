@@ -10,9 +10,13 @@ class UsersController < ApplicationController
   
   post '/signup' do
     # info for name, email, or password is missing? redirect to /signup
-    if params[:name].empty? || params[:email].empty? || params[:password].empty?
+    status = "post signup"
+    if params[:name].empty? || params[:email].empty? || params[:password].empty? || User.find_by(email: params[:email])
+      # status = "at least one of the params are empty, or found email so it's not unique"
+      # binding.pry
       redirect to '/signup'
     else
+      # status = "couldn't find email, so this is unique"
       @user = User.new(:name => params[:name], :password => params[:password], :email => params[:email])
       @user.save
       session[:user_id] = @user.id
