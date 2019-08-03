@@ -5,3 +5,7 @@
 <% if @review.user.id == session[:user_id] %>
   <a href="/reviews/<%=@review.id%>/edit">Edit</a>
 <% end %>
+<form method="post" action="/reviews/<%=@review.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Review">
+</form>
