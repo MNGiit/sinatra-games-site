@@ -1,0 +1,25 @@
+<h1>Edit Review</h1>
+<form method="POST" action="/reviews/new">
+  
+  <select id="game" name="game_id" required>
+    
+    <option></option>
+    <% @games.each do |game| %>
+      <option value=<%=game.id%>><%= game.title %></option>
+    <% end %>
+  </select> <br>
+  
+
+  <label for="score">Score:</label>
+  <select id="score" name="score" required>
+    <option></option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+  </select> <br>
+
+  <textarea name="content" placeholder="Type Review here." required></textarea>
+  <input type="submit" value="Submit">
+</form>
