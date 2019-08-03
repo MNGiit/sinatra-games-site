@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
   
   get '/reviews/:id/edit' do
     @review = Review.find_by_id(params[:id])
-    binding.pry
+  
     if @review
       if @review.user.id == session[:user_id]
         erb :'reviews/edit'
@@ -44,6 +44,12 @@ class ReviewsController < ApplicationController
     else
       redirect to '/login'
     end
+  end
+  
+  patch '/reviews/:id' do
+    "Patching..."
+    
+    redirect to "/reviews/#{params[:id]}"
   end
   
 end
