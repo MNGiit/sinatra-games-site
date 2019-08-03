@@ -1,5 +1,5 @@
 <h1>Edit Review</h1>
-<form method="POST" action="/reviews/new">
+<form method="POST" action="/reviews/<%=@review.id%>">
   
   <select id="game" name="game_id" required>
     <option value=<%=@review.game.id%>><%=@review.game.title%></option>
