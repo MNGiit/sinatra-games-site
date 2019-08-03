@@ -47,9 +47,16 @@ class ReviewsController < ApplicationController
   end
   
   patch '/reviews/:id' do
-    "Patching..."
-    
-    redirect to "/reviews/#{params[:id]}"
+    @review = Review.find_by_id(params[:id])
+    if @review && @review.user.id == session[:user_id]
+      if @review.update(content: params[:content], score: params[:score])
+        redirect to "/reviews/#{@review.id}"
+      else
+        redirect to "/reviews/#{@review.id}/edit"
+      end
+    else
+      redirect to "/reviews/#{@review.id}"
+    end
   end
   
 end
