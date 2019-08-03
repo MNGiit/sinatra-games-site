@@ -22,4 +22,12 @@ class ReviewsController < ApplicationController
     end
   end
   
+  get '/reviews/:id' do
+    @review = Review.find_by_id(params[:id])
+    if @review
+      erb :"reviews/show"
+    else
+      redirect to '/games'
+    end
+  end
 end
