@@ -1,5 +1,7 @@
 <h1>Edit Review</h1>
-<form method="POST" action="/reviews/<%=@review.id%>">
+<form method="POST" action="/reviews/<%=@review.id%>/edit"> <!-- action caused problem, fixed -->
+  
+  <input id="hidden" type="hidden" name="_method" value="PATCH"> <!-- -->
   
   <select id="game" name="game_id" required>
     <option value=<%=@review.game.id%>><%=@review.game.title%></option>
