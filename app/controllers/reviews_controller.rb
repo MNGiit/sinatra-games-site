@@ -16,8 +16,10 @@ class ReviewsController < ApplicationController
     if review
       redirect to "/reviews/#{review.id}"
     else
-      @review = Review.new(:score => params[:score], :content => params[:content], :user => User.find_by_id(session[:user_id]), :game => Game.find(params[:game_id]))
-    "#{@review.score} - #{@review.content} - #{@review.user.name} - #{@review.game.title}"
+      @review = Review.create(:score => params[:score], :content => params[:content], :user => User.find_by_id(session[:user_id]), :game => Game.find(params[:game_id]))
+      # "#{@review.score} - #{@review.content} - #{@review.user.name} - #{@review.game.title}"
+      
+      redirect to "/reviews/#{@review.id}"
     end
   end
   
@@ -29,4 +31,6 @@ class ReviewsController < ApplicationController
       redirect to '/games'
     end
   end
+  
+  
 end
