@@ -5,6 +5,10 @@
 <% end %>
 <h3>User Reviews</h3>
 <% @user.reviews.each do |review| %>
-  <p><a href="/games/<%=review.game.id %>"><%= review.game.title %></a> - <%= review.score %></p>
+  <p><a href="/games/<%=review.game.id %>"><%= review.game.title %></a> - <%= review.score %>
+  <% if review.user.id == session[:user_id] %>
+     - <a href="/reviews/<%=review.id%>/edit">Edit</a>
+  <% end %>
+  </p>
   <p><%= review.content %></p><br>
 <% end %>

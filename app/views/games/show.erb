@@ -4,5 +4,9 @@
 
 <% @game.reviews.each do |review| %>
   <p>Score: <%= review.score %></p>
-  <p>Review: <%= review.content %> by <a href="/users/<%=review.user.id%>"><%= review.user.name %></a></p><br>
+  <p>Review: <%= review.content %> by <a href="/users/<%=review.user.id%>"><%= review.user.name %></a>
+  <% if review.user.id == session[:user_id] %>
+     - <a href="/reviews/<%=review.id%>/edit">Edit</a>
+  <% end %>
+  </p><br>
 <% end %>

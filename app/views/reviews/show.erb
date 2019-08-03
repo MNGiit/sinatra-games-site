@@ -2,3 +2,6 @@
 <h1><%= @review.game.title %></h1>
 <h2><%= @review.score %></h2>
 <p><%= @review.content %> - by <a href=/users/<%=@review.user.id%>><%= @review.user.name %></a></p>
+<% if @review.user.id == session[:user_id] %>
+  <a href="/reviews/<%=@review.id%>/edit">Edit</a>
+<% end %>
