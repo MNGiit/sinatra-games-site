@@ -2,11 +2,7 @@
 <form method="POST" action="/reviews/new">
   
   <select id="game" name="game_id" required>
-    
-    <option></option>
-    <% @games.each do |game| %>
-      <option value=<%=game.id%>><%= game.title %></option>
-    <% end %>
+    <option value=<%=@review.game.id%>><%=@review.game.title%></option>
   </select> <br>
   
 
@@ -22,4 +18,5 @@
 
   <textarea name="content" placeholder="Type Review here." required></textarea>
   <input type="submit" value="Submit">
+  
 </form>
