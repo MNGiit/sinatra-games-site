@@ -1,0 +1,4 @@
+<h1>Review</h1>
+<h1><%= @review.game.title %></h1>
+<h2><%= @review.score %></h2>
+<p><%= @review.content %> - by <a href=/users/<%=@review.user.id%>><%= @review.user.name %></a></p>
