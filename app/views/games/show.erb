@@ -10,3 +10,9 @@
   <% end %>
   </p><br>
 <% end %>
+
+<% if session[:user_id] %>
+  <a href="/users/<%=session[:user_id]%>">Go back to your page</a>
+<% end %>
+
+<a href="/games">See games list</a>

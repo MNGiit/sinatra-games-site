@@ -14,3 +14,8 @@
   </p>
   <p><%= review.content %></p><br>
 <% end %>
+
+<% if session[:user_id] && session[:user_id] != @user.id %>
+  <a href="/users/<%=session[:user_id]%>">See your page</a>
+  <a href="/games">Check out the games</a>
+<% end %>

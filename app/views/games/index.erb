@@ -1,5 +1,9 @@
 <h1>Games</h1>
 <h3>Check out these games, or <a href="/reviews/new">write your own review!</a></h3>
+<% if session[:user_id] %>
+  <a href="/users/<%=session[:user_id]%>">See your page</a>
+<% end %>
+
 <% @games.each do |game| %>
   <p><a href="/games/<%=game.id%>"><%=game.title%></a> - <%=game.publisher%></p>
 <% end %>
