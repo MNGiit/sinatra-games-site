@@ -31,16 +31,13 @@ class ReviewsController < ApplicationController
   end
   
   get '/reviews/:id/edit' do
-    @review = Review.find_by_id(params[:id])
-  
-    if @review
-      if @review.user.id == session[:user_id]
-        erb :'reviews/edit'
-      else
-        redirect to '/games'
-      end
-    else
+    set_review
+    if @review.user.id == session[:user_id]
+      erb :'reviews/edit'
+    elsif !session[:user_id]
       redirect to '/login'
+    else
+      redirect to '/games'
     end
   end
   
@@ -72,4 +69,13 @@ class ReviewsController < ApplicationController
     end
   end
   
+  private
+
+  def set_review
+    @review = Review.find_by_id(params[:id])
+    if !@review
+        redirect to '/games'
+    end
+  end
+
 end
